@@ -100,9 +100,9 @@ const Home = () => {
 
   return (
     <CustomerLayout>
-      <div className="relative overflow-hidden">
+      <div className="relative">
         {/* Hero Section - Asymmetrical & Editorial */}
-        <section className="relative min-h-[85vh] lg:min-h-[90vh] flex items-center pt-20 md:pt-0 pb-12 md:pb-24">
+        <section className="relative min-h-[70vh] lg:min-h-[80vh] flex flex-col justify-center pt-32 pb-40 md:pt-40 md:pb-52 overflow-hidden">
           <div className="max-w-7xl mx-auto px-8 w-full editorial-grid relative z-10 transition-all">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -113,7 +113,7 @@ const Home = () => {
               <span className="text-secondary font-bold uppercase tracking-[0.3em] text-xs mb-4 block">
                 The Electric Soul of Indiranagar
               </span>
-              <h1 className="text-5xl md:text-8xl lg:text-9xl font-black font-headline text-on-background leading-[0.85] tracking-tighter mb-6 xl:text-[7.5rem]">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black font-headline text-on-background leading-[0.85] tracking-tighter mb-8">
                 THE SOCIAL <br />
                 <span className="text-primary italic">HOUSE.</span>
               </h1>
