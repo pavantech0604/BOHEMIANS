@@ -102,7 +102,7 @@ const Home = () => {
     <CustomerLayout>
       <div className="relative">
         {/* Hero Section - Asymmetrical & Editorial */}
-        <section className="relative min-h-[90svh] lg:min-h-[95svh] flex items-center pt-20 md:pt-0 overflow-visible">
+        <section className="relative min-h-fit flex flex-col justify-center pt-16 pb-40 md:pt-20 md:pb-48 overflow-visible">
           <div className="max-w-7xl mx-auto px-8 w-full editorial-grid relative z-10 transition-all">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -113,14 +113,14 @@ const Home = () => {
               <span className="text-secondary font-bold uppercase tracking-[0.3em] text-xs mb-4 block">
                 The Electric Soul of Indiranagar
               </span>
-              <h1 className="text-5xl md:text-8xl lg:text-9xl font-black font-headline text-on-background leading-[0.85] tracking-tighter mb-6 xl:text-[7.5rem]">
+              <h1 className="text-6xl md:text-8xl lg:text-9xl xl:text-[clamp(4rem,11.5vh,9.5rem)] font-black font-headline text-on-background leading-[0.8] tracking-tighter mb-4 transition-all">
                 THE SOCIAL <br />
                 <span className="text-primary italic">HOUSE.</span>
               </h1>
-              <p className="text-lg md:text-xl max-w-lg mb-8 text-on-surface-variant leading-relaxed font-body">
+              <p className="text-base md:text-lg max-w-lg mb-4 text-on-surface-variant leading-relaxed font-body">
                 Where haute cuisine meets rebellion. Housed in a converted bungalow, <img src={logoBlack} dir="ltr" className="logo-inline" alt="Bohemians" /> is an artsy salon designed for the curated chaos of modern life.
               </p>
-              <div className="flex flex-wrap gap-6 mt-4">
+              <div className="flex flex-wrap gap-6 mt-2">
                 <Button variant="primary" size="xl" className="shadow-2xl" onClick={() => window.location.href = '/reservations'}>
                   Book a Table
                 </Button>
