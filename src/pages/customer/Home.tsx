@@ -102,7 +102,7 @@ const Home = () => {
     <CustomerLayout>
       <div className="relative overflow-hidden">
         {/* Hero Section - Asymmetrical & Editorial */}
-        <section className="relative min-h-[80vh] lg:min-h-[85vh] flex items-center pt-4 md:pt-0 overflow-hidden">
+        <section className="relative min-h-[85vh] lg:min-h-[90vh] flex items-center pt-20 md:pt-0 pb-12 md:pb-24">
           <div className="max-w-7xl mx-auto px-8 w-full editorial-grid relative z-10 transition-all">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
