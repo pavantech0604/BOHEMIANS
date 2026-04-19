@@ -47,7 +47,12 @@
     @apply bg-surface text-on-surface font-body selection:bg-primary/20 overflow-x-hidden antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-headline font-black tracking-tighter;
   }
 }
@@ -80,9 +85,9 @@
   }
 
   .logo-inline {
-    @apply inline-block h-10 md:h-16 w-auto mx-3 px-2 align-middle transform -translate-y-[2px] scale-x-[1.6] contrast-[1.4] brightness-105 transition-all duration-500 hover:scale-[1.7] hover:-translate-y-2 cursor-pointer;
-    image-rendering: -webkit-optimize-contrast;
+    @apply inline-block h-10 md:h-16 w-auto mx-4 px-1 align-middle transform -translate-y-[2px] scale-x-[1.4] transition-all duration-500 hover:scale-110 hover:-translate-y-1 cursor-pointer;
     image-rendering: crisp-edges;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
   }
 }
 
@@ -101,8 +106,17 @@
 
 /* Custom Animations */
 @keyframes pulse-slow {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(1.05); }
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(1.05);
+  }
 }
 
 .animate-pulse-slow {

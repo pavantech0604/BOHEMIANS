@@ -8,6 +8,9 @@ import { REAL_PHOTOS, REAL_REVIEWS, REAL_MENU } from '../../data/realData';
 import { ContactMapSection } from '../../components/sections/ContactMapSection';
 import { supabase } from '../../lib/supabase';
 
+// Import assets correctly for Vite
+import logoBlack from '../../assets/logo-black.png';
+
 interface MenuItem {
   id: string;
   name: string;
@@ -99,7 +102,7 @@ const Home = () => {
     <CustomerLayout>
       <div className="relative overflow-hidden">
         {/* Hero Section - Asymmetrical & Editorial */}
-        <section className="relative min-h-[80vh] lg:min-h-[85vh] flex items-center pt-4 md:pt-0">
+        <section className="relative min-h-[80vh] lg:min-h-[85vh] flex items-center pt-4 md:pt-0 overflow-hidden">
           <div className="max-w-7xl mx-auto px-8 w-full editorial-grid relative z-10 transition-all">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -115,7 +118,7 @@ const Home = () => {
                 <span className="text-primary italic">HOUSE.</span>
               </h1>
               <p className="text-lg md:text-xl max-w-lg mb-8 text-on-surface-variant leading-relaxed font-body">
-                Where haute cuisine meets rebellion. Housed in a converted bungalow, <img src="/src/assets/logo-magenta.png" className="logo-inline inline h-8 align-middle" alt="Bohemians" /> is an artsy salon designed for the curated chaos of modern life.
+                Where haute cuisine meets rebellion. Housed in a converted bungalow, <img src={logoBlack} dir="ltr" className="logo-inline" alt="Bohemians" /> is an artsy salon designed for the curated chaos of modern life.
               </p>
               <div className="flex flex-wrap gap-6 mt-4">
                 <Button variant="primary" size="xl" className="shadow-2xl" onClick={() => window.location.href = '/reservations'}>
@@ -140,7 +143,7 @@ const Home = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-4 -left-4 w-48 h-48 md:w-72 md:h-72 bg-primary-container rounded-lg -rotate-12 -z-10 opacity-20" />
+              <div className="absolute -bottom-4 left-4 w-48 h-48 md:w-80 md:h-80 bg-primary-container rounded-[3rem] -rotate-12 -z-10 opacity-20" />
             </motion.div>
           </div>
 

@@ -57,7 +57,10 @@ export const AdminLayout = ({ children }: { children: React.ReactNode }) => {
               src={logoBlack} 
               alt="Bohemians Logo" 
               className="h-32 w-auto object-contain transition-all duration-700 hover:scale-105 hover:-translate-y-1 cursor-pointer"
-              style={{ imageRendering: 'crisp-edges' }}
+              style={{ 
+                imageRendering: 'crisp-edges',
+                filter: 'contrast(1.1) brightness(1.05) drop-shadow(0 2px 4px rgba(0,0,0,0.05))'
+              }}
             />
           </div>
           <p className="text-[10px] font-black uppercase tracking-[0.4em] text-on-surface/30 text-center relative z-10">Admin Control</p>
