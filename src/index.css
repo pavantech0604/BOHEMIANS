@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #b40065;
+  --color-primary-container: #e10080;
+  --color-primary-fixed: #ffd9e3;
+  --color-primary-fixed-dim: #ffb0ca;
+  --color-on-primary: #ffffff;
+
+  --color-secondary: #006a6a;
+  --color-secondary-container: #90efef;
+  --color-secondary-fixed: #93f2f2;
+  --color-on-secondary: #ffffff;
+
+  --color-tertiary: #136b00;
+  --color-tertiary-container: #1b8700;
+  --color-tertiary-fixed: #86fd66;
+
+  --color-surface: #fefccf;
+  --color-surface-dim: #dedcb1;
+  --color-surface-bright: #fefccf;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f8f6c9;
+  --color-surface-container: #f2f0c4;
+  --color-surface-container-high: #eceabe;
+  --color-surface-container-highest: #e6e5b9;
+
+  --color-background: #fefccf;
+  --color-on-background: #1d1d03;
+  --color-on-surface: #1d1d03;
+  --color-on-surface-variant: #5b3f48;
+  --color-outline: #8f6e78;
+  --color-outline-variant: #e3bdc7;
+
+  --font-headline: "Epilogue", sans-serif;
+  --font-body: "Manrope", sans-serif;
+  --font-label: "Manrope", sans-serif;
+
+  --radius-lg: 2rem;
+  --radius-xl: 3rem;
+  --radius-2xl: 4rem;
+  --radius-3xl: 5rem;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-body selection:bg-primary/20 overflow-x-hidden antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline font-black tracking-tighter;
+  }
+}
+
+@layer components {
+  .bg-grain {
+    @apply fixed inset-0 z-[9999] opacity-[0.03] pointer-events-none;
+    background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  }
+
+  .editorial-grid {
+    @apply grid grid-cols-12 gap-6;
+  }
+
+  .glass-panel {
+    @apply bg-surface/80 backdrop-blur-2xl border-none;
+  }
+
+  .organic-badge {
+    @apply rounded-tl-[2rem] rounded-br-[2rem] px-4 py-1 font-headline text-xs font-bold uppercase;
+  }
+
+  .logo-glow {
+    filter: drop-shadow(0 0 15px rgba(180, 0, 101, 0.4));
+    transition: filter 0.5s ease;
+  }
+
+  .logo-glow:hover {
+    filter: drop-shadow(0 0 25px rgba(180, 0, 101, 0.7));
+  }
+
+  .logo-inline {
+    @apply inline-block h-10 md:h-16 w-auto mx-3 px-2 align-middle transform -translate-y-[2px] scale-x-[1.6] contrast-[1.4] brightness-105 transition-all duration-500 hover:scale-[1.7] hover:-translate-y-2 cursor-pointer;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-surface;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
+}
+
+/* Curtain Transition Styles */
+.curtain-overlay {
+  @apply fixed inset-0 bg-primary z-[100] transform translate-y-full transition-transform duration-700 ease-in-out;
+}
+
+.curtain-active {
+  @apply translate-y-0;
+}
