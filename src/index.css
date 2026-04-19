@@ -99,6 +99,16 @@
   @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
 }
 
+/* Custom Animations */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.05); }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s ease-in-out infinite;
+}
+
 /* Curtain Transition Styles */
 .curtain-overlay {
   @apply fixed inset-0 bg-primary z-[100] transform translate-y-full transition-transform duration-700 ease-in-out;

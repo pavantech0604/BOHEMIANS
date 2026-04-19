@@ -42,8 +42,10 @@ export const Card = ({ children, className = '', variant = 'low' }: { children: 
     highest: "bg-surface-container-highest",
   };
 
+  const hasBg = className.includes('bg-');
+
   return (
-    <div className={`rounded-lg overflow-hidden transition-colors duration-300 ${variants[variant]} ${className}`}>
+    <div className={`rounded-lg overflow-hidden transition-colors duration-300 ${!hasBg ? variants[variant] : ''} ${className}`}>
       {children}
     </div>
   );

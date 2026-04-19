@@ -10,11 +10,17 @@ import {
   BarChart3, 
   Bell, 
   PlusCircle,
-  LogOut
+  LogOut,
+  Menu as MenuIcon,
+  X
 } from 'lucide-react';
+
+// Import assets correctly for Vite
+import logoBlack from '../assets/logo-black.png';
 
 export const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
+  const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
 
   const menuItems = [
     { name: 'Operations', path: '/admin', icon: LayoutDashboard },
@@ -27,13 +33,28 @@ export const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   ];
 
   return (
-    <div className="min-h-screen bg-surface flex overflow-hidden font-body">
+    <div className="min-h-screen bg-surface flex flex-col md:flex-row overflow-hidden font-body">
+      {/* Mobile Header - Overlay Trigger */}
+      <div className="md:hidden flex items-center justify-between p-6 bg-surface border-b border-stone-200 z-50">
+        <img src={logoBlack} alt="Bohemians" className="h-12 w-auto" />
+        <button 
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          className="p-2 bg-primary/10 text-primary rounded-xl"
+        >
+          {isSidebarOpen ? <X size={24} /> : <MenuIcon size={24} />}
+        </button>
+      </div>
+
       {/* Sidebar Anchor */}
-      <aside className="w-72 bg-surface flex flex-col border-r border-stone-200/30 z-40 fixed inset-y-0 left-0">
+      <aside className={`
+        w-72 bg-surface flex flex-col border-r border-stone-200/30 z-40 fixed inset-y-0 left-0 transition-transform duration-500 ease-in-out
+        ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
+        shadow-[20px_0_50px_rgba(0,0,0,0.02)]
+      `}>
         <div className="px-6 py-2 border-b border-stone-200/5 bg-surface-container-low/20">
           <div className="flex items-center justify-center -mb-4 -mt-2">
             <img 
-              src="/src/assets/logo-black.png" 
+              src={logoBlack} 
               alt="Bohemians Logo" 
               className="h-32 w-auto object-contain transition-all duration-700 hover:scale-105 hover:-translate-y-1 cursor-pointer"
               style={{ imageRendering: 'crisp-edges' }}
@@ -83,7 +104,14 @@ export const AdminLayout = ({ children }: { children: React.ReactNode }) => {
       </aside>
 
       {/* Main Canvas */}
-      <main className="flex-1 ml-72 min-h-screen overflow-y-auto relative p-12">
+      <main className="flex-1 min-h-screen overflow-y-auto relative p-6 md:p-12 md:ml-72 pt-10 md:pt-12">
+        {/* Backdrop for mobile */}
+        {isSidebarOpen && (
+          <div 
+            className="fixed inset-0 bg-stone-900/40 backdrop-blur-sm z-30 md:hidden"
+            onClick={() => setIsSidebarOpen(false)}
+          />
+        )}
         <header className="flex justify-between items-center mb-16 h-20">
           <div>
             <h2 className="font-headline text-5xl font-black text-on-background tracking-tighter uppercase leading-none">Daily Pulse</h2>
